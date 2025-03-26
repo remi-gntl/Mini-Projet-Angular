@@ -1,0 +1,9 @@
+<div *ngIf="theJeu">
+    <h2>{{ theJeu.titre }}</h2>
+    <p><strong>Genre :</strong> {{ theJeu.genre }}</p>
+    <p><strong>Prix :</strong> {{ theJeu.plateforme }} </p>
+    <p><strong>Stock :</strong> {{ theJeu.stockDisponible }}</p>
+  
+    <button (click)="onAddStock()">Ajouter un exemplaire</button>
+  </div>
+  

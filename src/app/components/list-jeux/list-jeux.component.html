@@ -1,0 +1,6 @@
+<h2>Liste des Jeux Vidéo</h2>
+<ul>
+  <li *ngFor="let jeu of jeux">
+    <a [routerLink]="['/jeux', jeu.id]">{{ jeu.titre }}</a>
+  </li>
+</ul>
