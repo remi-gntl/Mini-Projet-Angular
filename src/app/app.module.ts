@@ -8,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListJeuxComponent } from './components/list-jeux/list-jeux.component';
+import { ListReservationsComponent } from './components/list-reservations/list-reservations.component';
+import { ReservationComponent } from './components/reservation/reservation.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ListJeuxComponent } from './components/list-jeux/list-jeux.component';
     JeuComponent,
     HeaderComponent,
     HomeComponent,
-    ListJeuxComponent
+    ListJeuxComponent,
+    ListReservationsComponent,
+    ReservationComponent
   ],
   imports: [
     BrowserModule,

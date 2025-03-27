@@ -1,0 +1,17 @@
+<h2>Liste des Réservations</h2>
+<table border="1">
+  <thead>
+    <tr>
+      <th>Client</th>
+      <th>Jeu</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reservation of reservations">
+      <td>{{ reservation.nomClient }}</td>
+      <td>{{ reservation.titreDuJeu }}</td>
+      <td>{{ reservation.dateReservation }}</td>
+    </tr>
+  </tbody>
+</table>

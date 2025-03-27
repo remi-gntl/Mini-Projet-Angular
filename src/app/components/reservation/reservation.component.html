@@ -1,0 +1,11 @@
+<div [hidden]="!reservation">
+    <h2>Détails de la réservation</h2>
+    <p><strong>Client :</strong> {{ reservation?.nomClient }}</p>
+    <p><strong>Jeu :</strong> {{ reservation?.titreDuJeu }}</p>
+    <p><strong>Date :</strong> {{ reservation?.dateReservation }}</p>
+  </div>  
+  
+  <div [hidden]="reservation">
+    <p>Aucune réservation trouvée.</p>
+  </div>
+  
