@@ -19,4 +19,8 @@ export class JeuxService {
   getJeuById(id: number): Observable<Jeu> {
     return this.http.get<Jeu>('http://localhost:3000/jeux/' + id);
   }
+
+  updateJeu(jeu: any): Observable<any> {
+    return this.http.put<any>('http://localhost:3000/jeux/' + jeu.id, jeu);
+  }
 }

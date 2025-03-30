@@ -1,7 +1,23 @@
-<h2>Bienvenue dans l'application de gestion des jeux vidéo</h2>
-<p>Cette application permet aux employés de :</p>
-<ul>
-  <li>Consulter la liste des jeux vidéo disponibles</li>
-  <li>Voir les réservations des clients</li>
-  <li>Ajouter une réservation manuelle</li>
-</ul>
+<div class="card shadow">
+  <div class="card-body">
+    <h2 class="card-title text-dark mb-4">Bienvenue dans l'application de gestion des jeux vidéo</h2>
+    <p class="card-text">Cette application permet aux employés de :</p>
+    <ul class="mb-4">
+      <li>Consulter la liste des jeux vidéo disponibles</li>
+      <li>Voir les réservations des clients</li>
+      <li>Ajouter une réservation manuelle</li>
+    </ul>
+    
+    <div class="mt-4">
+      <a routerLink="/jeux" class="btn btn-dark me-2">
+        Voir les jeux
+      </a>
+      <a routerLink="/reservations" class="btn btn-danger me-2">
+        Gérer les réservations
+      </a>
+      <a routerLink="/create-reservations" class="btn btn-success">
+        Ajouter une réservation
+      </a>
+    </div>
+  </div>
+</div>

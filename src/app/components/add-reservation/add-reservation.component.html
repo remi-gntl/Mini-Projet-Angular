@@ -1,0 +1,101 @@
+<div class="monForm">
+    <section class="subForm saisieForm">
+        <h2>Nouvelle Réservation</h2>
+        <form [formGroup]="formulaire">
+            <div class="form-group">
+                <label for="nomClient">Nom du client</label>
+                <div class="input">
+                    <input id="nomClient" class="form-control" type="text" formControlName="nomClient"/>
+                    <div *ngIf="formulaire.get('nomClient')?.invalid && formulaire.get('nomClient')?.dirty ||
+                        formulaire.get('nomClient')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('nomClient')?.hasError('required')">
+                            Ce champ est requis.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <div class="input">
+                    <input id="email" class="form-control" type="email" formControlName="email"/>
+                    <div *ngIf="formulaire.get('email')?.invalid && formulaire.get('email')?.dirty ||
+                        formulaire.get('email')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('email')?.hasError('email')">
+                            Veuillez entrer une adresse email valide.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Téléphone</label>
+                <div class="input">
+                    <input id="telephone" class="form-control" type="tel" formControlName="telephone"/>
+                    <div *ngIf="formulaire.get('telephone')?.invalid && formulaire.get('telephone')?.dirty ||
+                        formulaire.get('telephone')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('telephone')?.hasError('required')">
+                            Ce champ est requis.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="jeuId">Jeu</label>
+                <div class="input">
+                    <select id="jeuId" class="form-control" formControlName="jeuId">
+                        <option value="">Sélectionnez un jeu</option>
+                        <option *ngFor="let jeu of jeux" [value]="jeu.id">
+                            {{ jeu.titre }} ({{ jeu.plateforme }}) - Stock: {{ jeu.stockDisponible }}
+                        </option>
+                    </select>
+                    <div *ngIf="formulaire.get('jeuId')?.invalid && formulaire.get('jeuId')?.dirty ||
+                        formulaire.get('jeuId')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('jeuId')?.hasError('required')">
+                            Veuillez sélectionner un jeu.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dateReservation">Date de réservation</label>
+                <div class="input">
+                    <input id="dateReservation" class="form-control" type="date" formControlName="dateReservation"/>
+                    <div *ngIf="formulaire.get('dateReservation')?.invalid && formulaire.get('dateReservation')?.dirty ||
+                        formulaire.get('dateReservation')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('dateReservation')?.hasError('required')">
+                            Ce champ est requis.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="statut">Statut</label>
+                <div class="input">
+                    <select id="statut" class="form-control" formControlName="statut">
+                        <option value="En attente">En attente</option>
+                        <option value="Confirmée">Confirmée</option>
+                        <option value="Annulée">Annulée</option>
+                    </select>
+                </div>
+            </div>
+            
+            <button (click)="addReservation()" type="button" [disabled]="formulaire.invalid">Ajouter</button>
+        </form>
+    </section>
+    <section class="subForm visuForm">
+        <h2>Aperçu de la réservation</h2>
+        <div *ngIf="currentReservation !== undefined">
+            <h3>Réservation pour: {{ currentReservation.nomClient }}</h3>
+            <p>Contact: {{ currentReservation.email }}</p>
+            <p>Téléphone: {{ currentReservation.telephone }}</p>
+            <p>Jeu: {{ currentReservation.titreDuJeu }}</p>
+            <p>Plateforme: {{ currentReservation.plateforme }}</p>
+            <p>Date de réservation: {{ currentReservation.dateReservation | date: 'dd/MM/yyyy' }}</p>
+            <p>Statut: {{ currentReservation.statut }}</p>
+        </div>
+    </section>
+</div>

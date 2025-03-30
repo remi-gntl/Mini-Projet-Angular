@@ -1,6 +1,31 @@
-<h2>Liste des Jeux Vidéo</h2>
-<ul>
-  <li *ngFor="let jeu of jeux">
-    <a [routerLink]="['/jeux', jeu.id]">{{ jeu.titre }}</a>
-  </li>
-</ul>
+<div class="card shadow mb-4">
+  <div class="card-body">
+    <h2 class="card-title text-dark mb-4">Liste des Jeux Vidéo</h2>
+    
+    <!-- Filtres et recherche -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Rechercher un jeu...">
+          <button class="btn btn-outline-secondary" type="button">Rechercher</button>
+        </div>
+    
+    <!-- Liste des jeux -->
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+      <div class="col" *ngFor="let jeu of jeux">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title">{{ jeu.titre }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ jeu.plateforme }} • {{ jeu.genre }}</h6>
+            <p class="card-text">
+              <span class="badge bg-info text-dark">Stock: {{ jeu.stockDisponible }}</span>
+            </p>
+            <a [routerLink]="['/jeux', jeu.id]" class="btn btn-sm btn-dark">
+              Voir détails
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

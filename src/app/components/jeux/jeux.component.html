@@ -1,9 +1,39 @@
-<div *ngIf="theJeu">
-    <h2>{{ theJeu.titre }}</h2>
-    <p><strong>Genre :</strong> {{ theJeu.genre }}</p>
-    <p><strong>Prix :</strong> {{ theJeu.plateforme }} </p>
-    <p><strong>Stock :</strong> {{ theJeu.stockDisponible }}</p>
-  
-    <button (click)="onAddStock()">Ajouter un exemplaire</button>
+<div *ngIf="theJeu" class="card shadow">
+  <div class="card-header bg-white">
+    <a routerLink="/jeux" class="btn btn-sm btn-outline-dark">
+      <i class="bi bi-arrow-left"></i> Retour à la liste
+    </a>
   </div>
-  
+  <div class="card-body">
+    <h2 class="card-title text-dark mb-4">{{ theJeu.titre }}</h2>
+    
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <strong>Genre :</strong> {{ theJeu.genre }}
+          </li>
+          <li class="list-group-item">
+            <strong>Plateforme :</strong> {{ theJeu.plateforme }}
+          </li>
+          <li class="list-group-item">
+            <strong>Stock :</strong> 
+            <span class="badge bg-info text-dark">{{ theJeu.stockDisponible }}</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="col-md-6">
+        <div class="d-grid gap-2">
+          <button (click)="onAddStock()" class="btn btn-success">
+            <i class="bi bi-plus-circle me-1"></i> Ajouter un exemplaire
+          </button>
+          
+          <a routerLink="/reservations" class="btn btn-dark">
+            <i class="bi bi-list-check me-1"></i> Voir les réservations
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

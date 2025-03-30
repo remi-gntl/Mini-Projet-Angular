@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ListJeuxComponent } from './components/list-jeux/list-jeux.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 import { ListReservationsComponent } from './components/list-reservations/list-reservations.component';
+import { AddReservationComponent } from './components/add-reservation/add-reservation.component';
 
 const routes: Routes = [
   { path: 'jeux/:id', component: JeuComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'reservations/:id', component: ReservationComponent },
   { path: 'reservations', component: ListReservationsComponent},
+  { path: 'create-reservations', component: AddReservationComponent},
 
 ];
 
