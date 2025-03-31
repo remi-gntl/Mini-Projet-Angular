@@ -23,4 +23,25 @@ export class ListReservationsComponent implements OnInit {
       }
     });
   }
+
+  deleteReservation(id: string): void {
+    if (confirm('Êtes-vous sûr de vouloir supprimer cette réservation ?')) {
+      this.reservationsService.deleteReservation(id).subscribe({
+        next: () => {
+          this.reservationsService.getReservations().subscribe({
+            next: (reservations) => {
+              this.reservations = reservations;
+            },
+            error: (err) => {
+              console.error('Erreur lors de la récupération des réservations:', err);
+            }
+          });
+        },
+        error: (err) => {
+          console.error('Erreur lors de la suppression de la réservation:', err);
+          alert("Impossible de supprimer la réservation");
+        }
+      });
+    }
+  }
 }

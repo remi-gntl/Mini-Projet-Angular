@@ -34,4 +34,14 @@ export class ReservationsService {
       })
     );
   }
+
+  // Mettre à jour une réservation existante
+  updateReservation(id: string, reservation: Reservation): Observable<Reservation> {
+    return this.http.put<Reservation>('http://localhost:3000/reservations/' + id, reservation);
+  }
+  
+  // Supprimer une réservation
+  deleteReservation(id: string): Observable<void> {
+    return this.http.delete<void>('http://localhost:3000/reservations/' + id);
+  }
 }

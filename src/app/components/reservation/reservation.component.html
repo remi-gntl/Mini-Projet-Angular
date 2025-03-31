@@ -45,12 +45,9 @@
       </div>
       
       <div class="d-flex gap-2 mt-3">
-        <button class="btn btn-dark">
+        <a [routerLink]="['/reservations/edit', reservation.id]" class="btn btn-dark">
           <i class="bi bi-pencil me-1"></i> Modifier
-        </button>
-        <button class="btn btn-danger">
-          <i class="bi bi-x-circle me-1"></i> Annuler la réservation
-        </button>
+        </a>
       </div>
     </div>
     

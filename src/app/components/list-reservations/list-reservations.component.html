@@ -47,7 +47,10 @@
                 <a [routerLink]="['/reservations', reservation.id]" class="btn btn-dark">
                   <i class="bi bi-eye"></i>
                 </a>
-                <button class="btn btn-danger">
+                <a [routerLink]="['/reservations/edit', reservation.id]" class="btn btn-warning">
+                  <i class="bi bi-pencil"></i>
+                </a>
+                <button class="btn btn-danger" (click)="deleteReservation(reservation.id)">
                   <i class="bi bi-trash"></i>
                 </button>
               </div>

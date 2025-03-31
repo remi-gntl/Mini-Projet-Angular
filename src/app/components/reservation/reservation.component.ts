@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Reservation } from '../../models/reservation.model';
+import { ReservationsService } from '../../services/reservation.service';
 
 @Component({
   selector: 'app-reservation',
