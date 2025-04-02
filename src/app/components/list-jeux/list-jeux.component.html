@@ -2,7 +2,7 @@
   <div class="card-body">
     <h2 class="card-title text-dark mb-4">Liste des Jeux Vidéo</h2>
     
-    <!-- Filtres et recherche -->
+    <!--recherche-->
     <div class="row mb-4">
       <div class="col-md-8">
         <div class="input-group">
@@ -15,14 +15,28 @@
           >
         </div>
       </div>
+      <div class="col-md-3">
+        <div class="btn-group" role="group" aria-label="Filtres de plateforme">
+          <button *ngFor="let plateforme of plateformesList" 
+                  type="button" 
+                  class="btn" 
+                  [ngClass]="{
+                    'btn-info': selectedPlateforme === plateforme,
+                    'btn-outline-info': selectedPlateforme !== plateforme,
+                    'active': selectedPlateforme === plateforme
+                  }"
+                  (click)="onPlateformeChange(plateforme)">
+            {{ plateforme }}
+          </button>
+        </div>
+      </div>
+      
     </div>
     
-    <!-- Message si aucun résultat -->
     <div *ngIf="jeuxFiltres.length === 0" class="alert alert-info">
       Aucun jeu ne correspond à votre recherche.
     </div>
     
-    <!-- Liste des jeux (modifiée pour utiliser jeuxFiltres au lieu de jeux) -->
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
       <div class="col" *ngFor="let jeu of jeuxFiltres">
         <div class="card h-100">

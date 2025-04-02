@@ -104,7 +104,7 @@ export class AddReservationComponent implements OnInit {
     });
   }
 
-  // format date du jour (YYYY-MM-DD)
+  //format date du jour (AAAA-MM-JJ)
   private getCurrentDate(): string {
     const today = new Date();
     const year = today.getFullYear();
