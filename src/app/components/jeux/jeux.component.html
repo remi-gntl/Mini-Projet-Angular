@@ -17,6 +17,12 @@
             <strong>Plateforme :</strong> {{ theJeu.plateforme }}
           </li>
           <li class="list-group-item">
+            <strong>Date de sortie :</strong> {{ theJeu.dateSortie | date:'dd/MM/yyyy' }}
+          </li>
+          <li class="list-group-item">
+            <strong>Développeur :</strong> {{ theJeu.developpeur }}
+          </li>
+          <li class="list-group-item">
             <strong>Stock :</strong> 
             <span class="badge bg-info text-dark">{{ theJeu.stockDisponible }}</span>
           </li>

@@ -7,10 +7,12 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { ListReservationsComponent } from './components/list-reservations/list-reservations.component';
 import { AddReservationComponent } from './components/add-reservation/add-reservation.component';
 import { EditReservationComponent } from './components/edit-reservation/edit-reservation.component';
+import { AddJeuComponent } from './components/add-jeu/add-jeu.component';
 
 const routes: Routes = [
   { path: 'jeux/:id', component: JeuComponent},
   { path: 'jeux', component: ListJeuxComponent},
+  { path: 'create-jeu',component: AddJeuComponent},
   { path: '', component: HomeComponent},
   { path: 'reservations/:id', component: ReservationComponent },
   { path: 'reservations', component: ListReservationsComponent},

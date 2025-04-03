@@ -1,0 +1,100 @@
+<div class="monForm">
+    <section class="subForm saisieForm">
+        <h2>Nouveau Jeu</h2>
+        <form [formGroup]="formulaire">
+            <div class="form-group">
+                <label for="titre">Titre du jeu</label>
+                <div class="input">
+                    <input id="titre" class="form-control" type="text" formControlName="titre"/>
+                    <div *ngIf="formulaire.get('titre')?.invalid && formulaire.get('titre')?.dirty ||
+                        formulaire.get('titre')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('titre')?.hasError('required')">
+                            Ce champ est requis.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="plateforme">Plateforme</label>
+                <div class="input">
+                    <input id="plateforme" class="form-control" type="text" formControlName="plateforme"/>
+                    <div *ngIf="formulaire.get('plateforme')?.invalid && formulaire.get('plateforme')?.dirty ||
+                        formulaire.get('plateforme')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('plateforme')?.hasError('required')">
+                            Ce champ est requis.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="genre">Genre</label>
+                <div class="input">
+                    <input id="genre" class="form-control" type="text" formControlName="genre"/>
+                    <div *ngIf="formulaire.get('genre')?.invalid && formulaire.get('genre')?.dirty ||
+                        formulaire.get('genre')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('genre')?.hasError('required')">
+                            Ce champ est requis.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="dateSortie">Date de sortie</label>
+                <div class="input">
+                  <input id="dateSortie" class="form-control" type="date" formControlName="dateSortie"/>
+                  <div *ngIf="formulaire.get('dateSortie')?.invalid && formulaire.get('dateSortie')?.dirty ||
+                      formulaire.get('dateSortie')?.touched">
+                    <small class="text-danger" *ngIf="formulaire.get('dateSortie')?.hasError('required')">
+                      Ce champ est requis.
+                    </small>
+                  </div>
+                </div>
+              </div>
+
+            <div class="form-group">
+                <label for="developpeur">Développeur</label>
+                <div class="input">
+                    <input id="developpeur" class="form-control" type="text" formControlName="developpeur"/>
+                    <div *ngIf="formulaire.get('developpeur')?.invalid && formulaire.get('developpeur')?.dirty ||
+                        formulaire.get('developpeur')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('developpeur')?.hasError('required')">
+                            Ce champ est requis.
+                        </small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="stockDisponible">Stock disponible</label>
+                <div class="input">
+                    <input id="stockDisponible" class="form-control" type="number" min="1" formControlName="stockDisponible"/>
+                    <div *ngIf="formulaire.get('stockDisponible')?.invalid && formulaire.get('stockDisponible')?.dirty ||
+                        formulaire.get('stockDisponible')?.touched">
+                        <small class="text-danger" *ngIf="formulaire.get('stockDisponible')?.hasError('required')">
+                            Ce champ est requis.
+                        </small>
+                        <small class="text-danger" *ngIf="formulaire.get('stockDisponible')?.hasError('min')">
+                            Le stock doit être au moins de 1.
+                        </small>
+                    </div>
+                </div>
+            </div>
+            
+            <button (click)="addJeu()" type="button" [disabled]="formulaire.invalid">Ajouter</button>
+        </form>
+    </section>
+    <section class="subForm visuForm">
+        <h2>Aperçu du jeu</h2>
+        <div *ngIf="currentJeu">
+            <h3>{{ currentJeu.titre }}</h3>
+            <p>Plateforme: {{ currentJeu.plateforme }}</p>
+            <p>Genre: {{ currentJeu.genre }}</p>
+            <p>Date de sortie: {{currentJeu.dateSortie}}</p>
+            <p>Développeur: {{ currentJeu.developpeur }}</p>
+            <p>Stock disponible: {{ currentJeu.stockDisponible }}</p>
+        </div>
+    </section>
+</div>

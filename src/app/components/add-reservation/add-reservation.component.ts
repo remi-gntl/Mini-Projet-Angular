@@ -84,19 +84,6 @@ export class AddReservationComponent implements OnInit {
     };
 
     this.reservationService.addReservation(newReservation).subscribe({
-      next: () => {
-        // MAJ stock jeu
-        selectedJeu.stockDisponible--;
-        this.jeuxService.updateJeu(selectedJeu).subscribe({
-          next: () => {
-            this.router.navigateByUrl('/reservations');
-          },
-          error: (err) => {
-            console.error('Observable updateJeu a émis une erreur : ' + err);
-            alert("Réservation créée mais problème lors de la mise à jour du stock");
-          }
-        });
-      },
       error: (err) => {
         console.error('Observable addReservation a émis une erreur : ' + err);
         alert("Désolé, la réservation n'a pas pu être créée");
@@ -104,7 +91,7 @@ export class AddReservationComponent implements OnInit {
     });
   }
 
-  //format date du jour (AAAA-MM-JJ)
+  //format date du jour (AAAA-MM-DD)
   private getCurrentDate(): string {
     const today = new Date();
     const year = today.getFullYear();

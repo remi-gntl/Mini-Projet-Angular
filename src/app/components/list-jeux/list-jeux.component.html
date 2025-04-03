@@ -2,9 +2,8 @@
   <div class="card-body">
     <h2 class="card-title text-dark mb-4">Liste des Jeux Vidéo</h2>
     
-    <!--recherche-->
     <div class="row mb-4">
-      <div class="col-md-8">
+      <div class="col-md-6 col-lg-5 mb-3 mb-md-0">
         <div class="input-group">
           <input 
             type="text" 
@@ -15,22 +14,29 @@
           >
         </div>
       </div>
-      <div class="col-md-3">
-        <div class="btn-group" role="group" aria-label="Filtres de plateforme">
-          <button *ngFor="let plateforme of plateformesList" 
-                  type="button" 
-                  class="btn" 
-                  [ngClass]="{
-                    'btn-info': selectedPlateforme === plateforme,
-                    'btn-outline-info': selectedPlateforme !== plateforme,
-                    'active': selectedPlateforme === plateforme
-                  }"
-                  (click)="onPlateformeChange(plateforme)">
+      
+      <div class="col-md-6 col-lg-4 mb-3 mb-md-0">
+        <div class="d-flex flex-wrap gap-2">
+          <button 
+            type="button" 
+            class="btn" 
+            *ngFor="let plateforme of plateformesList"
+            [ngClass]="{
+              'btn-primary': selectedPlateforme === plateforme,
+              'btn-outline-primary': selectedPlateforme !== plateforme,
+              'active': selectedPlateforme === plateforme
+            }"
+            (click)="onPlateformeChange(plateforme)">
             {{ plateforme }}
           </button>
         </div>
       </div>
       
+      <div class="col-lg-3 d-flex justify-content-md-end mt-3 mt-lg-0">
+        <button class="btn btn-success" [routerLink]="['/create-jeu']">
+          <i class="bi bi-plus-circle me-1"></i> Ajouter
+        </button>
+      </div>
     </div>
     
     <div *ngIf="jeuxFiltres.length === 0" class="alert alert-info">

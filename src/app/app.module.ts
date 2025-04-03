@@ -16,6 +16,7 @@ import { ReservationComponent } from './components/reservation/reservation.compo
 import { FooterComponent } from './components/footer/footer.component';
 import { AddReservationComponent } from './components/add-reservation/add-reservation.component';
 import { EditReservationComponent } from './components/edit-reservation/edit-reservation.component';
+import { AddJeuComponent } from './components/add-jeu/add-jeu.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { EditReservationComponent } from './components/edit-reservation/edit-res
     ReservationComponent,
     FooterComponent,
     AddReservationComponent,
-    EditReservationComponent
+    EditReservationComponent,
+    AddJeuComponent
   ],
   imports: [
     BrowserModule,

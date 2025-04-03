@@ -30,7 +30,6 @@ export class EditReservationComponent implements OnInit {
     this.reservationId = this.route.snapshot.paramMap.get('id') || '0';
     this.loadJeux();
     
-    // Initialisation du formulaire vide
     this.formulaire = this.formBuilder.group({
       nomClient: [null, Validators.required],
       email: [null, Validators.email],
@@ -40,7 +39,6 @@ export class EditReservationComponent implements OnInit {
       statut: ['En attente']
     }, { updateOn: 'blur' });
     
-    // Chargement des données de la réservation existante
     this.loadReservation();
   }
 
@@ -61,11 +59,9 @@ export class EditReservationComponent implements OnInit {
       next: (reservation) => {
         this.currentReservation = reservation;
         
-        // Recherche du jeu correspondant
         const jeu = this.jeux.find(j => j.titre === reservation.titreDuJeu);
         const jeuId = jeu ? jeu.id : null;
         
-        // Mise à jour du formulaire avec les données existantes
         this.formulaire.patchValue({
           nomClient: reservation.nomClient,
           email: reservation.email,
@@ -112,7 +108,7 @@ export class EditReservationComponent implements OnInit {
     });
   }
 
-  // format date du jour (YYYY-MM-DD)
+  //format date du jour (AAAA-MM-JJ)
   private getCurrentDate(): string {
     const today = new Date();
     const year = today.getFullYear();
