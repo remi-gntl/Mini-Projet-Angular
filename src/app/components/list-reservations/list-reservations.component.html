@@ -38,12 +38,10 @@
       </div>
     </div>
     
-    <!-- Message si aucun résultat -->
     <div *ngIf="reservationsFiltrees.length === 0" class="alert alert-info">
       Aucune réservation ne correspond à vos critères.
     </div>
     
-    <!-- Tableau des réservations -->
     <div class="table-responsive" *ngIf="reservationsFiltrees.length > 0">
       <table class="table table-striped table-hover">
         <thead class="table-light">

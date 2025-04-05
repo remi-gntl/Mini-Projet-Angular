@@ -8,4 +8,3 @@ export interface Reservation {
     dateReservation: string;
     statut: string;
   }
-  

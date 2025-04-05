@@ -22,7 +22,7 @@ export class ListReservationsComponent implements OnInit {
     this.reservationsService.getReservations().subscribe({
       next: (reservations) => {
         this.reservations = reservations;
-        this.filtrerReservations(); // Appliquer les filtres initiaux
+        this.filtrerReservations(); 
       },
       error: (err) => {
         console.error('Erreur lors de la récupération des réservations:', err);
@@ -30,9 +30,7 @@ export class ListReservationsComponent implements OnInit {
     });
   }
 
-  // Méthode pour appliquer tous les filtres (recherche et statut)
   filtrerReservations(): void {
-    // D'abord, on applique le filtre de recherche textuelle
     let resultats = this.reservations;
     
     if (this.searchText.trim()) {
@@ -45,24 +43,19 @@ export class ListReservationsComponent implements OnInit {
         reservation.email?.toLowerCase().includes(searchValue)
       );
     }
-    
-    // Ensuite, on applique le filtre de statut
-    if (this.selectedStatut !== 'Tous') {
+      if (this.selectedStatut !== 'Tous') {
       resultats = resultats.filter(reservation => 
         reservation.statut === this.selectedStatut
       );
     }
     
-    // On met à jour les réservations filtrées
     this.reservationsFiltrees = resultats;
   }
 
-  // Méthode appelée lors de la modification du texte de recherche
   onSearchChange(): void {
     this.filtrerReservations();
   }
   
-  // Méthode appelée lors du changement de statut
   onStatutChange(statut: string): void {
     this.selectedStatut = statut;
     this.filtrerReservations();
@@ -75,7 +68,7 @@ export class ListReservationsComponent implements OnInit {
           this.reservationsService.getReservations().subscribe({
             next: (reservations) => {
               this.reservations = reservations;
-              this.filtrerReservations(); // Réappliquer les filtres
+              this.filtrerReservations();
             },
             error: (err) => {
               console.error('Erreur lors de la récupération des réservations:', err);

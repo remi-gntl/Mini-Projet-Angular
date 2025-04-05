@@ -10,17 +10,14 @@ export class JeuxService {
   
   constructor(private http: HttpClient) {}
 
-  // Récupérer tous les jeux
   getJeux(): Observable<Jeu[]> {
     return this.http.get<Jeu[]>('http://localhost:3000/jeux');
   }
 
-  // Récupérer un jeu par son ID
   getJeuById(id: number): Observable<Jeu> {
     return this.http.get<Jeu>('http://localhost:3000/jeux/' + id);
   }
 
-  // Ajouter un nouveau jeu
   addJeu(nouvJeu: Jeu): Observable<Jeu> {
     return this.getJeux().pipe(
       switchMap(jeux => {

@@ -10,17 +10,14 @@ export class ReservationsService {
 
   constructor(private http: HttpClient) {}
 
-  // Récupérer toutes les réservations
   getReservations(): Observable<Reservation[]> {
     return this.http.get<Reservation[]>('http://localhost:3000/reservations');
   }
 
-  // Récupérer une réservation par son ID
   getReservationById(id: string): Observable<Reservation> {
     return this.http.get<Reservation>('http://localhost:3000/reservations/' + id);
   }
 
-  // Ajouter une nouvelle réservation
   addReservation(nouvReservation: Reservation): Observable<Reservation> {
     return this.getReservations().pipe(
       switchMap(reservations => {
